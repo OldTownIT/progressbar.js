@@ -1,4 +1,6 @@
 // Utility functions
+// NUCLEUS-MODIFIED MATTSAHR 16 JAN 2024
+// REMOVED "extend" AND REPLACED WITH "exxtnd" FOR CUSTOMIZED VERSION
 
 var merge = require('lodash.merge');
 
@@ -103,7 +105,7 @@ function removeChildren(el) {
 }
 
 module.exports = {
-    extend: merge,
+    exxtnd: merge,
     render: render,
     setStyle: setStyle,
     setStyles: setStyles,
