@@ -1,4 +1,6 @@
 // Base object for different progress bar shapes
+// NUCLEUS-MODIFIED MATTSAHR 16 JAN 2024
+// REMOVED "extend" AND REPLACED WITH "exxtnd" FOR CUSTOMIZED VERSION
 
 var Path = require('./path');
 var utils = require('./utils');
@@ -23,7 +25,7 @@ var Shape = function Shape(container, opts) {
     }
 
     // Default parameters for progress bar creation
-    this._opts = utils.extend({
+    this._opts = utils.exxtnd({
         color: '#555',
         strokeWidth: 1.0,
         trailColor: null,
@@ -52,7 +54,7 @@ var Shape = function Shape(container, opts) {
             width: '100%'
         },
         warnings: false
-    }, opts, true);  // Use recursive extend
+    }, opts, true);  // Use recursive exxtnd
 
     // If user specifies e.g. svgStyle or text style, the whole object
     // should replace the defaults to make working with styles easier
@@ -92,7 +94,7 @@ var Shape = function Shape(container, opts) {
     this.trail = svgView.trail;
     this.text = null;
 
-    var newOpts = utils.extend({
+    var newOpts = utils.exxtnd({
         attachment: undefined,
         shape: this
     }, this._opts);
@@ -252,7 +254,7 @@ Shape.prototype._createTrail = function _createTrail(opts) {
     var pathString = this._trailString(opts);
 
     // Prevent modifying original
-    var newOpts = utils.extend({}, opts);
+    var newOpts = utils.exxtnd({}, opts);
 
     // Defaults for parameters which modify trail path
     if (!newOpts.trailColor) {
