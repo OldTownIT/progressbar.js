@@ -1,4 +1,6 @@
 // Lower level API to animate any kind of svg path
+// NUCLEUS-MODIFIED MATTSAHR 16 JAN 2024
+// REMOVED "extend" AND REPLACED WITH "exxtnd" FOR CUSTOMIZED VERSION
 
 var shifty = require('shifty');
 var utils = require('./utils');
@@ -18,7 +20,7 @@ var Path = function Path(path, opts) {
     }
 
     // Default parameters for animation
-    opts = utils.extend({
+    opts = utils.exxtnd({
         delay: 0,
         duration: 800,
         easing: 'linear',
@@ -84,11 +86,11 @@ Path.prototype.animate = function animate(progress, opts, cb) {
         opts = {};
     }
 
-    var passedOpts = utils.extend({}, opts);
+    var passedOpts = utils.exxtnd({}, opts);
 
     // Copy default opts to new object so defaults are not modified
-    var defaultOpts = utils.extend({}, this._opts);
-    opts = utils.extend(defaultOpts, opts);
+    var defaultOpts = utils.exxtnd({}, this._opts);
+    opts = utils.exxtnd(defaultOpts, opts);
 
     var shiftyEasing = this._easing(opts.easing);
     var values = this._resolveFromAndTo(progress, shiftyEasing, passedOpts);
@@ -105,8 +107,8 @@ Path.prototype.animate = function animate(progress, opts, cb) {
     var self = this;
     this._tweenable = new Tweenable();
     this._tweenable.tween({
-        from: utils.extend({ offset: offset }, values.from),
-        to: utils.extend({ offset: newOffset }, values.to),
+        from: utils.exxtnd({ offset: offset }, values.from),
+        to: utils.exxtnd({ offset: newOffset }, values.to),
         duration: opts.duration,
         delay: opts.delay,
         easing: shiftyEasing,
